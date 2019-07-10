@@ -111,7 +111,8 @@ function articleEvent(articleElement) {
     expandButton.classList.toggle('hide-btn');
     collapseButton.classList.toggle('hide-btn');
     articleElement.classList.toggle('article-open');
-  })
+  });
+
 }
 
 function articleMarkup(articleElement) {
@@ -137,8 +138,29 @@ function articleMarkup(articleElement) {
   const collapseButton = document.createElement('span');
 
   // append to parent (article):
-  
+  article.appendChild(headerElement);
+  article.appendChild(dateElement);
+  article.appendChild(paragraphElement);
+  article.appendChild(buttonContainer);
+  buttonContainer.appendChild(expandButton);
+  buttonContainer.appendChild(collapseButton);
+
+  // className:
+  article.className = 'article';
+  dateElement.className = 'date';
+  buttonContainer.className = 'button-container';
+  expandButton.className = 'expandButton';
+  collapseButton.className = 'collapseButton';
+  collapseButton.classList.add('hide-btn');
+
+  // textContent and static text:
+  expandButton.textContent = 'Expand';
+  collapseButton.textContent = 'Collapse';
+
+  console.log(article);
 }
+
+articleMarkup();
 
 
 /* START HERE: */
