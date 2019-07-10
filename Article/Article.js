@@ -1,18 +1,25 @@
-// Because classes are not hoisted you will need to start your code at the bottom of the page.  Look for the comment "START HERE"
+// Will need to write the Article class as a function:
 
-class Article {
-  constructor(articleElement) {
-  }
+// class Article {
+//   constructor(articleElement) {
+//   }
 
-  expandArticle() {
-  }
+//   expandArticle() {
+//   }
 
-  // Following code is for stretch problem 2:
-  removeArticle() {
-  }
+//   // Following code is for stretch problem 2:
+//   removeArticle() {
+//   }
+// }
+
+function articleEvent(articleElement) {
+  const expandButton = articleElement.querySelector('.expandButton');
+  expandButton.textContent = 'Expand';
+
+  expandButton.addEventListener('click', event => {
+    articleElement.classList.toggle('article-open');
+  })
 }
-
-// stretch article markup with DOM and class component:
 
 
 /* START HERE: 
@@ -36,9 +43,7 @@ const articleObject1 = {
 
 let articles = document.querySelectorAll('.article');
 
+articles.forEach(article => articleEvent(article));
 
-articles.forEach((articleElement) => {
-  return new Article(articleElement)
-})
 
 
