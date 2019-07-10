@@ -115,7 +115,7 @@ function articleEvent(articleElement) {
 
 }
 
-function articleMarkup(articleElement) {
+function articleMarkup(articleItem) {
   // html structure
   /* 
   <div class='article'>
@@ -157,10 +157,14 @@ function articleMarkup(articleElement) {
   expandButton.textContent = 'Expand';
   collapseButton.textContent = 'Collapse';
 
+  headerElement.textContent = articleItem.header;
+  dateElement.textContent = articleItem.date;
+  paragraphElement.textContent = articleItem.paragraph;
+
   console.log(article);
 }
 
-articleMarkup();
+articleArray.forEach(article => articleMarkup(article));
 
 
 /* START HERE: */
