@@ -13,10 +13,14 @@
 // }
 
 function articleEvent(articleElement) {
-  const expandButton = articleElement.querySelector('.expandButton');
-  expandButton.textContent = 'Expand';
+  const buttonField = articleElement.querySelector('.button-container');
 
-  expandButton.addEventListener('click', event => {
+  buttonField.addEventListener('click', event => {
+    const expandButton = buttonField.querySelector('.expandButton');
+    const collapseButton = buttonField.querySelector('.collapseButton');
+
+    expandButton.classList.toggle('hide-btn');
+    collapseButton.classList.toggle('hide-btn');
     articleElement.classList.toggle('article-open');
   })
 }
