@@ -1,9 +1,16 @@
-
+const menuItems = [
+	'Students',
+	'Faculty',
+	'What\'s New',
+	'Tech Trends',
+	'Music',
+	'Log Out'
+]
 
 const toggleMenu = () => {
 	const parentMenu = document.querySelector('.menu');
 
-	parentMenu.appendChild(menuMarkup());
+	parentMenu.appendChild(menuMarkup(menuItems));
 
 	menuElement.classList.toggle('menu--open')
 
@@ -17,7 +24,7 @@ const menuButton = document.querySelector('.menu-button');
 menuButton.addEventListener('click', toggleMenu);
 
 
-function menuMarkup() {
+function menuMarkup(menuItems) {
 	/* 
 	<div class='menu'>
 		<ul>
@@ -30,29 +37,17 @@ function menuMarkup() {
 		</ul>
 	</div>
 	*/
-	const menuList = document.createElement('ul');
-	const students = document.createElement('li');
-	const faculty = document.createElement('li');
-	const what = document.createElement('li');
-	const tech = document.createElement('li');
-	const music = document.createElement('li');
-	const log = document.createElement('li');
 
-	menuList.appendChild(students);
-	menuList.appendChild(faculty);
-	menuList.appendChild(what);
-	menuList.appendChild(tech);
-	menuList.appendChild(music);
-	menuList.appendChild(log);
+	const listHead = document.createElement('ul');
 
-	students.textContent = 'Students';
-	faculty.textContent = 'Faculty';
-	what.textContent = 'What\'s New';
-	tech.textContent = 'Tech Trends';
-	music.textContent = 'Music';
-	log.textContent = 'Log Out';
+	menuItems.forEach(item => {
+		const listElement = document.createElement('li');
+		listElement.textContent = item;
+		listHead.appendChild(listElement);
 
-	return menuList;
+	});
+
+	return listHead;
 	
 }
 

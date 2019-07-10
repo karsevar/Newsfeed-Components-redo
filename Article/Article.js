@@ -170,9 +170,7 @@ function articleMarkup(articleItem) {
 // appending the article markup to the html:
 const parentArticle = document.querySelector('.articles');
 
-const newArticleArray = articleArray.map(article => articleMarkup(article));
-
-newArticleArray.forEach(article => parentArticle.appendChild(article));
+articleArray.forEach(article => parentArticle.appendChild(articleMarkup(article)));
 
 
 
