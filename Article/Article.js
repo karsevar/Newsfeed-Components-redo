@@ -161,17 +161,20 @@ function articleMarkup(articleItem) {
   dateElement.textContent = articleItem.date;
   paragraphElement.textContent = articleItem.paragraph;
 
-  console.log(article);
+  articleEvent(article);
+
+  return article;
 }
 
-articleArray.forEach(article => articleMarkup(article));
+
+// appending the article markup to the html:
+const parentArticle = document.querySelector('.articles');
+
+const newArticleArray = articleArray.map(article => articleMarkup(article));
+
+newArticleArray.forEach(article => parentArticle.appendChild(article));
 
 
-/* START HERE: */
-
-let articles = document.querySelectorAll('.article');
-
-articles.forEach(article => articleEvent(article));
 
 
 
